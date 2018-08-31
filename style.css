@@ -69,6 +69,35 @@ a{
 	transition: width .4s, opacity 0.5s .15s, padding 0.5s .15s;
 }
 
+@media only screen and (max-width: 660px) {
+  .caixa-search{
+  	width: 42px;
+  }
+
+  .caixa-search:hover{
+  	width: 310px;
+  }
+
+}
+
+@media only screen and (max-width: 400px) {
+  .caixa-search{
+  	width: 42px;
+  }
+
+  .caixa-search:hover{
+  	width: 75%;
+
+  }
+
+  .caixa-search:hover > .texto-search{
+  	width: 60%;
+  }
+
+}
+
+
+
 .caixa-search:hover > .botao-search{
 	transform: rotate(90deg);
 }

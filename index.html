@@ -11,12 +11,12 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
-			
+
 			var app = angular.module('app', []);
 			var controllers = {};
-			
 
-			
+
+
 			controllers.Busca = function($scope) {
 				var comando = "";
 				$scope.focused = false;
@@ -30,7 +30,7 @@
 						return false;
 					}
 				}
-				
+
 				$scope.redirecionar = function() {
 					if(comando == "ajuda") {
 						$scope.teste = "active";
@@ -38,24 +38,23 @@
 				}
 			}
 
-			
-			
+
+
 			app.controller(controllers);
-			
+
 		</script>
 	</head>
-	<body ng-controller="Busca">
-		<div class="caixa-search" ng-class="{ligado: focused && contemComando()}">
-			<input class="texto-search" type="text" placeholder="Pesquisar" spellcheck="false" autocomplete="false" ng-model="texto" ng-focus="focused = true" ng-blur="focused = false">
-			<a class="botao-search" href="#">
-				<i class="fas fa-search"></i>
-			</a>
-			
-			<input type="button" id="inputTexto" ng-click="redirecionar()" class="item" ng-class="{aparecendo: focused && contemComando()}">
-			
-		</div>
+	<body  ng-controller="Busca">
 
-		
+			<div class="caixa-search" ng-class="{ligado: focused && contemComando()}">
+				<input class="texto-search" type="text" placeholder="Pesquisar" spellcheck="false" autocomplete="false" ng-model="texto" ng-focus="focused = true" ng-blur="focused = false">
+				<a class="botao-search" href="#">
+					<i class="fas fa-search"></i>
+				</a>
+
+				<input type="button" id="inputTexto" ng-click="redirecionar()" class="item" ng-class="{aparecendo: focused && contemComando()}">
+			</div>
+
 		<p>Comando digitado: {{texto}} </p>
 
 		<script>
@@ -66,7 +65,7 @@
 				$(".texto-search").focus();
 			});
 		</script>
-		
-		
+
+
 	</body>
 </html>
