@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title> Acroni </title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+		<link rel="stylesheet" href="all.css" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			
+			var app = angular.module('app', []);
+			var controllers = {};
+			
+
+			
+			controllers.Busca = function($scope) {
+				var comando = "";
+				$scope.focused = false;
+				$scope.teste = "";
+				$scope.contemComando = function() {
+					if($scope.texto.includes('ajuda') || $scope.texto.includes('AJUDA') || $scope.texto.includes('Ajuda') || $scope.texto.includes('help')) {
+						comando = "ajuda";
+						return true;
+					}
+					else {
+						return false;
+					}
+				}
+				
+				$scope.redirecionar = function() {
+					if(comando == "ajuda") {
+						$scope.teste = "active";
+					}
+				}
+			}
+
+			
+			
+			app.controller(controllers);
+			
+		</script>
+	</head>
+	<body ng-controller="Busca">
+		<div class="caixa-search" ng-class="{ligado: focused && contemComando()}">
+			<input class="texto-search" type="text" placeholder="Pesquisar" spellcheck="false" autocomplete="false" ng-model="texto" ng-focus="focused = true" ng-blur="focused = false">
+			<a class="botao-search" href="#">
+				<i class="fas fa-search"></i>
+			</a>
+			
+			<input type="button" id="inputTexto" ng-click="redirecionar()" class="item" ng-class="{aparecendo: focused && contemComando()}">
+			
+		</div>
+
+		
+		<p>Comando digitado: {{texto}} </p>
+
+		<script>
+			$(".caixa-search").mouseleave(function(){
+				$(".texto-search").blur();
+			});
+			$(".caixa-search").focus(function(){
+				$(".texto-search").focus();
+			});
+		</script>
+		
+		
+	</body>
+</html>
