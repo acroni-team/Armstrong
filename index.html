@@ -21,7 +21,7 @@
 				var comando = "";
 				$scope.focused = false;
 				$scope.teste = "";
-				$scope.contemComando = function() {
+				$scope.cmdAjuda = function() {
 					if($scope.texto.includes('ajuda') || $scope.texto.includes('AJUDA') || $scope.texto.includes('Ajuda') || $scope.texto.includes('help')) {
 						comando = "ajuda";
 						return true;
@@ -46,13 +46,15 @@
 	</head>
 	<body  ng-controller="Busca">
 
-			<div class="caixa-search" ng-class="{ligado: focused && contemComando()}">
+			<div class="caixa-search" ng-class="{ligado: focused && cmdAjuda()}">
 				<input class="texto-search" type="text" placeholder="Pesquisar" spellcheck="false" autocomplete="false" ng-model="texto" ng-focus="focused = true" ng-blur="focused = false">
 				<a class="botao-search" href="#">
 					<i class="fas fa-search"></i>
 				</a>
 
-				<input type="button" id="inputTexto" ng-click="redirecionar()" class="item" ng-class="{aparecendo: focused && contemComando()}">
+				<a href="#">
+					<button id="inputTexto" ng-click="redirecionar()" class="item" ng-class="{aparecendo: focused && cmdAjuda()}"> Precisa de ajuda? </button>
+				</a>
 			</div>
 
 		<p>Comando digitado: {{texto}} </p>
