@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'open';
-    src: url('open.ttf');
+    src: url('../font/openregular.ttf');
     font-weight: normal;
     font-style: normal;
 }
@@ -50,7 +50,7 @@ a{
 	display: inline-block;
   color: #fff;
   border: none;
-  font-size: 80%;
+  font-size: 85%;
   font-family: 'open';
 }
 
