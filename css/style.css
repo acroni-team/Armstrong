@@ -73,13 +73,6 @@ a{
 	transition: width .4s, opacity 0.5s .15s, padding 0.5s .15s;
 }
 
-.hovered{
-  width: 240px;
-	padding: 0 15px;
-	opacity: 1;
-	transition: width .4s, opacity 0.5s .15s, padding 0.5s .15s;
-}
-
 @media only screen and (max-width: 660px) {
   .caixa-search{
   	width: 42px;
