@@ -5,10 +5,23 @@
     font-style: normal;
 }
 
-body{
-	margin: 0;
-	padding: 0;
+*{
+	margin: 0 auto;
+	padding: 0 auto;
+}
+
+#container, body{
+	height: 100vh;
+	overflow: hidden;
+}
+
+#container{
 	background-color: #0093ff;
+	background-image: url(../img/back-leve.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+	background-position: 100% top;
+	transition: 0.3s;
 }
 
 p{

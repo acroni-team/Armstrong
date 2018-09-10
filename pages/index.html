@@ -2,7 +2,8 @@
 <html lang="pt-br" ng-app="app">
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<title> Acroni </title>
 		<link rel="stylesheet" href="../css/style.css">
@@ -13,7 +14,11 @@
 		<script type="text/javascript" src="../js/ux.js"></script>
 	</head>
 	<body  ng-controller="Busca">
-			<div class="caixa-search" ng-class="{ligado: focused && contemComando()}">
+		<div id="container">
+			<p>Comando digitado: {{texto}} </p>
+			<p>Comandos disponíveis: {{exibirComandos}} </p>
+		</div>
+		<div class="caixa-search" ng-class="{ligado: focused && contemComando()}">
 				<input class="texto-search" type="text" placeholder="Pesquisar" spellcheck="false" autocomplete="false" ng-model="texto" ng-focus="focused = true" ng-blur="focused = false">
 				<a class="botao-search" href="#">
 					<i class="fas fa-search"></i>
@@ -22,8 +27,13 @@
 					<button id="inputTexto" ng-click="redirecionar()" class="item" ng-class="{aparecendo: focused && contemComando()}"> {{contem}} </button>
 				</a>
 			</div>
-
-		<p>Comando digitado: {{texto}} </p>
-		<p>Comandos disponíveis: {{exibirComandos}} </p>
+		<script>
+			$(".caixa-search").mouseenter(function(){
+				$("#container").css("transform", "scale(1.5)");
+			});
+			$(".caixa-search").mouseleave(function(){
+				$("#container").css("transform", "scale(1)");
+			});
+		</script>
 	</body>
 </html>
